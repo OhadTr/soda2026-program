@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width" name="viewport"/>
+<title>SODA 2026</title>
+<style>table{margin-left:auto;margin-right:auto;border-collapse:collapse;table-layout:fixed;width:900pt}
+.paper-title{color:Blue;font-weight:700}
+.author{color:black;font-size:10pt;font-style:italic;font-family:Calibri,sans-serif}
+.conf-title,.conf-time,.session-time,.paper,.session-title,.conf-day,.conf-event,.conf-meal,.keynote{padding:3pt;color:black;font-family:Calibri,sans-serif;border:.5pt solid #666;vertical-align:top}
+.conf-title{font-size:18pt;font-weight:700;background:#ACB9CA;text-align:center;vertical-align:middle}
+.conf-time{width:55pt;font-size:11pt;font-weight:600;text-align:center;vertical-align:middle}
+.session-time{width:55pt;font-size:10pt;font-weight:700;text-align:center;vertical-align:middle;background:#f0f0f0}
+.paper{font-size:10pt;text-align:left}
+.session-title{font-size:9pt;font-weight:700;text-align:center;vertical-align:middle;background:#CFE2F3}
+.conf-day{font-size:14pt;font-weight:700;text-align:center;vertical-align:middle;background:#F4CCCC}
+.conf-event{font-size:10pt;font-weight:600;text-align:center;vertical-align:middle;background:#CFE2F3}
+.conf-meal{font-size:10pt;font-weight:700;text-align:center;vertical-align:middle;background:#D9EAD3}
+.keynote{font-size:10pt;font-weight:600;text-align:center;vertical-align:middle;background:#FFF2CC}
+.room{font-size:7pt;color:#666;font-weight:normal}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+/* Click-to-select styles */
+.paper.selectable{cursor:pointer;transition:background-color 0.15s}
+.paper.selectable:hover{background-color:#f5f5f5}
+.paper.selected{background-color:#e8e8e8 !important}
+/* Click-to-select styles */
+.paper.selectable{cursor:pointer;transition:background-color 0.15s}
+.paper.selectable:hover{background-color:#f5f5f5}
+.paper.selected{background-color:#e0e0e0 !important}
+
+/* Two-tier selection support */
+.paper.tier2{background-color:#fff7b2 !important}
+#tier-toggle-container{position:sticky;bottom:0;left:0;right:0;background:#ffffffcc;backdrop-filter:blur(4px);padding:10px 0;border-top:1px solid #ddd;z-index:9999}
+.tier-toggle{font-size:11pt;padding:8px 14px;border:1px solid #888;border-radius:6px;background:#f6f6f6;cursor:pointer}
+.tier-toggle.pressed{background:#dfe8ff;border-color:#4b6bff}
+
+/* Split cells (two talks in one time slot) */
+.paper-container{font-size:10pt;text-align:left;padding:0;color:black;font-family:Calibri,sans-serif;border:.5pt solid #666;vertical-align:top}
+.paper-split{width:100%;border-collapse:collapse;table-layout:fixed}
+.paper-split td.paper{border:0;padding:3pt;vertical-align:top}
+.paper-split tr+tr td.paper{border-top:.5pt solid #666}
+</style>
+</head>
+<body>
+<table>
+<colgroup><col style="width:55pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/><col style="width:42pt"/></colgroup>
+<tr><td class="conf-title" colspan="21">SODA 2026 — 37th ACM-SIAM Symposium on Discrete Algorithms<br/><span style="font-size:10pt;font-weight:normal">January 11–14, 2026 · Vancouver, Canada</span></td></tr>
+<tr><td class="conf-time"></td><td class="conf-day" colspan="20">Saturday, January 10</td></tr>
+<tr><td class="conf-time">5:00 PM</td><td class="conf-event" colspan="20">Registration</td></tr>
+<tr><td class="conf-time">6:00 PM</td><td class="conf-event" colspan="20">Welcome Reception</td></tr>
+<tr><td class="conf-time"></td><td class="conf-day" colspan="20">Sunday, January 11</td></tr>
+<tr><td class="conf-time">8:00 AM</td><td class="conf-event" colspan="20">Registration</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-meal" colspan="20">Continental Breakfast</td></tr>
+<tr>
+<td class="session-time">9:00 AM - 11:00 AM</td>
+<td class="session-title" colspan="5">CP1 SODA 1A: Approximation Algorithms<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP2 SODA 1B: Algorithmic Graph Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP3 SODA 1C:Combinatorics and Discrete Math<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="5">CP4 SODA 1D: Lower bound+complexity theory<br/><span class="room">Plaza C - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:00</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155605" target="_blank">Lower Bounds for the Universal TSP on the Plane</a><br/><span class="author">Cosmas Kravaris, Princeton University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155546" target="_blank">From Incremental Transitive Cover to Strongly Polynomial Maximum Flow</a><br/><span class="author">Daniel Dadush, Centrum Wiskunde &amp; Informatica, Netherlands; James Orlin, Massachusetts Institute of Technology, U.S.; Aaron Sidford, Stanford University, U.S.; László A. Végh, University of Bonn, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155530" target="_blank">Near-Optimal Centerpoints in Polynomial Time in the Ambient Dimension</a><br/><span class="author">Kunal Dutta and Karol Pisula, University of Warsaw, Poland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155618" target="_blank">Computational Complexity in Property Testing</a><br/><span class="author">Renato Ferreira Pinto JR., Columbia University, U.S.; Diptaksho Palit and Sofya Raskhodnikova, Boston University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:20</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155695" target="_blank">Tight Differentially Private PCA via Matrix Coherence</a><br/><span class="author">Tommaso D'Orsi, Bocconi University, Italy; Gleb Novikov, Lucerne School of Computer Science, Switzerland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155490" target="_blank">Centered Colorings in Minor-Closed Graph Classes</a><br/><span class="author">Jedrzej Hodor, Jagiellonian University, Poland; Hoang La, CNRS, Université Paris-Saclay, France; Piotr Micek, Jagiellonian University, Krakow, Poland; Clément Rambaud, Université de Nice Cote d'Azur, France</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155418" target="_blank">An Unconditional Lower Bound for the Active-Set Method in Convex Quadratic Maximization</a><br/><span class="author">Eleon Bach, Technische Universität München, Germany; Yann Disser, Technische Universität Darmstadt, Germany; Sophie Huiberts, CNRS, France; Nils Mosis, Technische Universität Darmstadt, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155466" target="_blank">Feature Selection and Junta Testing Are Statistically Equivalent</a><br/><span class="author">Nathan Harms, University of British Columbia, Canada; Lorenzo Beretta, IBM Corporation, U.S.; Caleb Koch, Stanford University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:40</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155514" target="_blank">Improved Approximation for Ranking on General Graphs</a><br/><span class="author">Tao Yu and Mahsa Derakhshan, Northeastern University, U.S.; Mohammad Roghani, Stanford University, U.S.; Mohammad Saneian, Northeastern University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155588" target="_blank">On the Computation of Schrijver's Kernels</a><br/><span class="author">Vincent Delecroix and Oscar Fontaine, Université de Bordeaux, France; Francis Lazarus, Universite Grenoble, France</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154503" target="_blank">Interaction Between Skew-Representability, Tensor Products, Extension Properties, and Rank Inequalities</a><br/><span class="author">Kristóf Bérczi, Eötvös Loránd University, Hungary; Boglárka Gehér, Alfréd Rényi Institute of Mathematics, Hungary; András Imolay, Eötvös Loránd University, Hungary; László Lovász, Alfréd Rényi Institute of Mathematics, Hungary; Carles Padró, Universidad Politecnica de Catalunya, Spain; Tamás Schwarcz, London School of Economics and Political Science, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155544" target="_blank">Halfspaces Are Hard to Test with Relative Error</a><br/><span class="author">Xi Chen, Columbia University, U.S.; Anindya De, University of Pennsylvania, U.S.; Yizhi Huang, Shivam Nadimpalli, Rocco A. Servedio, and Tianqi Yang, Columbia University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:00</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155623" target="_blank">Online Connectivity Augmentation</a><br/><span class="author">Aditya Subramanian, Indian Institute of Science, India; Mohit Garg, Eindhoven University of Technology, Netherlands and University of Bremen, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155471" target="_blank">From Unweighted to Weighted Dynamic Matching in Non-Bipartite Graphs: A Low-Loss Reduction</a><br/><span class="author">Aaron Bernstein, New York University, U.S.; Jiale Chen, Stanford University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155445" target="_blank">Finite Pinwheel Scheduling: the K-Visits Problem</a><br/><span class="author">Sotiris Kanellopoulos and Christos Pergaminelis, National Technical University of Athens, Greece; Maria Kokkou, Université de Provence Aix Marseille 1, France; Euripides Markou, University of Ioannina, Greece; Aris Pagourtzis, National Technical University of Athens, Greece</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155672" target="_blank">You (Almost) Can't Beat Brute Force for 3-Matroid Intersection</a><br/><span class="author">Ilan Doron-Arad, Technion Israel Institute of Technology, Israel; Ariel Kulik, Ben Gurion University, Israel; Hadas Shachnai, Technion, Israel</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:20</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154669" target="_blank">Stochastic Embedding of Digraphs into Dags</a><br/><span class="author">Arnold Filtser, Bar Ilan University, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154944" target="_blank">Determinization of Min-Plus Weighted Automata Is Decidable</a><br/><span class="author">Shaull Almagor, Guy Arbel, and Sarai Sheinvald, Technion Israel Institute of Technology, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155576" target="_blank">Cell-Probe Lower Bounds Via Semi-Random Csp Refutation: Simplified and the Odd-Locality Case</a><br/><span class="author">Weiqiang Yuan, École Polytechnique Fédérale de Lausanne, Switzerland; Venkatesan Guruswami and Xin Lyu, University of California, Berkeley, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155645" target="_blank">Short Circuit Walks in Fixed Dimension</a><br/><span class="author">Alexander E. Black, Bowdoin College, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:40</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155631" target="_blank">Low-Sensitivity Matching Via Sampling from Gibbs Distributions</a><br/><span class="author">Yuichi Yoshida and Zhang Zihan, National Institute of Informatics, Japan</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155422" target="_blank">Minimum $s$-$t$ Cuts with Fewer Cut Queries</a><br/><span class="author">Yonggang Jiang, Max Planck Institute, Germany; Danupon Nanongkai, Max Planck Institute for Informatics, Germany; Pachara Sawettamalya, Princeton University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155541" target="_blank">A Classification of Long-Refinement Graphs for Colour Refinement</a><br/><span class="author">Sandra Kiefer and T. Devini De Mel, University of Oxford, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155575" target="_blank">Space-Efficient Population Protocols for Exact Majority on General Graphs</a><br/><span class="author">Joel Rybicki, Jakob Solnerzik, Olivier Stietel, and Robin Vacus, Humboldt University at Berlin, Germany</span></td>
+</tr>
+<tr><td class="conf-time">11:00 AM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr><td class="conf-time">11:25 AM</td><td class="keynote" colspan="20">IP1 Can We Speed Safely?<br/><i>Ronitt Rubinfeld (Massachusetts Institute of Technology, U.S.)</i></td></tr>
+<tr><td class="conf-time">12:25 PM</td><td class="conf-meal" colspan="20">Lunch</td></tr>
+<tr>
+<td class="session-time">1:55 PM - 3:55 PM</td>
+<td class="session-title" colspan="5">CP5 SODA 2A: Approximation Algorithms<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP6 SODA 2B:Combinatorics and Discrete Math<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP7 SODA 2C:Randomized/Probabilistic Method<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="5">CP8 SODA 2D:Dynamic Algorithms/Scheduling<br/><span class="room">Plaza C - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">1:55</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155344" target="_blank">Deterministic and Exact Fully-Dynamic Minimum Cut of Superpolylogarithmic Size in Subpolynomial Time</a><br/><span class="author">Antoine El-Hayek, Institute of Science and Technology, Austria; Monika Henzinger, Institute of Science and Technology Austria, Austria; Jason M. Li, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155531" target="_blank">Language Generation in the Limit: Noise, Loss, and Feedback</a><br/><span class="author">Yannan Bai, Debmalya Panigrahi, and Ian Zhang, Duke University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155459" target="_blank">Approaching Optimality for Solving Dense Linear Systems with Low-Rank Structure</a><br/><span class="author">Michal Derezinski, University of Michigan, U.S.; Aaron Sidford, Stanford University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155411" target="_blank">Deterministic Dynamic Edge Colouring</a><br/><span class="author">Aleksander Christiansen, Technical University of Denmark, Denmark</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:15</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155573" target="_blank">Combinatorial Selection with Costly Information</a><br/><span class="author">Dimitrios Christou and Shuchi Chawla, University of Texas at Austin, U.S.; Amit Harlev and Ziv Scully, Cornell University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155570" target="_blank">Unbounded Error Correcting Codes</a><br/><span class="author">Or Zamir, Tel Aviv University, Israel; Klim Efremenko, Ben Gurion University, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155563" target="_blank">Faster Estimation of the Average Degree of a Graph Using Random Edges and Structural Queries</a><br/><span class="author">Deeparnab Chakrabarty, Dartmouth College, U.S.; Lorenzo Beretta, IBM Corporation, U.S.; C Seshadhri, University of California, Santa Cruz, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155643" target="_blank">History-Independent Load Balancing</a><br/><span class="author">Rose Silver, Carnegie Mellon University, U.S.; Michael A. Bender, Stony Brook University, U.S.; William Kuszmaul, Carnegie Mellon University, U.S.; Elaine Shi,</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:35</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=156000" target="_blank">Coloring 3-Colorable Graphs with Low Threshold Rank</a><br/><span class="author">Jun-Ting Hsieh, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155584" target="_blank">Generating Pivot Gray Codes for Spanning Trees of Complete Graphs in Constant Amortized Time</a><br/><span class="author">Dennis Wong, Bowie Liu, Chan-Tong Lam, and Sio-Kei Im, Macao Polytechnic University, Macao</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155396" target="_blank">On Sampling Two Spin Models Using the Local Connective Constant</a><br/><span class="author">Charilaos Efthymiou, University of Warwick, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155437" target="_blank">Dynamic Hierarchical J-Tree Decomposition and Its Applications</a><br/><span class="author">Zöcklein Gernot, Institute of Science and Technology Austria, Austria; Gramoz Goranci, University of Vienna, Austria; Monika Henzinger, Institute of Science and Technology Austria, Austria; Peter Kiss and Ali Momeni, University of Vienna, Austria</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:55</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155589" target="_blank">Near-Optimal Min-Sum Multi-Robot Motion Planning in a Planar Polygonal Environment</a><br/><span class="author">Benjamin Holmgren, Alex Steiger, and Pankaj Agarwal, Duke University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155634" target="_blank">Excluding a Line Minor Via Design Matrices and Column Number Bounds for the Circuit Imbalance Measure</a><br/><span class="author">Daniel Dadush, Centrum Wiskunde &amp; Informatica, Netherlands; Friedrich Eisenbrand, École Polytechnique Fédérale de Lausanne, Switzerland; Rom Pinchasi, Technion Israel Institute of Technology, Israel; Thomas Rothvoss, University of Washington, U.S.; Neta Singer, École Polytechnique Fédérale de Lausanne, Switzerland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155629" target="_blank">Optimal Randomized Clustering for Subsets of $L_p$ When $p&gt;2$</a><br/><span class="author">Assaf Naor and Kevin Ren, Princeton University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155497" target="_blank">Tree Embedding in High Dimensions: Dynamic and Massively Parallel</a><br/><span class="author">Gramoz Goranci, University of Vienna, Austria; Shaofeng Jiang, Peking University, China; Peter Kiss, University of Vienna, Austria; Qihao Kong and Yi Qian, Peking University, China; Eva Szilagyi, University of Vienna, Austria</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:15</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155577" target="_blank">An Optimal Algorithm for Average Distance in Typical Regular Graphs</a><br/><span class="author">Alexandros Eskenazis, CNRS and Sorbonne Université, Paris, France; Manor Mendel, Open University of Israel, Israel; Assaf Naor, Princeton University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155483" target="_blank">Algorithmic Improvements to List Decoding of Folded Reed-Solomon Codes</a><br/><span class="author">Mursalin Habib, Rutgers University, U.S.; Vikrant Ashvinkumar, Rutgers University, U.S.; Shashank Srivastava, Institute for Advanced Studies, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155520" target="_blank">\#cfg and \#dnnf Admit Fpras</a><br/><span class="author">Kuldeep S. Meel, Georgia Institute of Technology, U.S.; Alexis De Colnet, Technische Universität Wien, Austria</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155419" target="_blank">An Optimal Online Algorithm for Robust Flow Time Scheduling</a><br/><span class="author">Zhaozi Wang and Anupam Gupta, New York University, U.S.; Amit Kumar, Indian Institute of Technology, Delhi, India; Debmalya Panigrahi, Duke University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:35</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155515" target="_blank">A Broader View on Clustering under Cluster-Aware Norm Objectives</a><br/><span class="author">Martin G. Herold, MPI Informatik, Germany; Evangelos Kipouridis, Max Planck Institute for Informatics, Germany; Joachim Spoerhase, University of Liverpool, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155350" target="_blank">Distributed Interactive Proofs for Planarity with Log-Star Communication</a><br/><span class="author">Yuval Gil, Reykjavik University, Iceland; Merav Parter, Weizmann Institute of Science, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155595" target="_blank">Does Block Size Matter in Randomized Block Krylov Low-Rank Approximation?</a><br/><span class="author">Raphael A. Meyer, University of California, Berkeley, U.S.; Tyler Chen, New York University, U.S.; Ethan Epperly, University of California, Berkeley, U.S.; Christopher Musco, New York University, U.S.; Akash Rao, Washington State University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155664" target="_blank">Learning Packing and Covering from Samples</a><br/><span class="author">Anupam Gupta, New York University, U.S.; Marco Molinaro, Microsoft Research, U.S.</span></td>
+</tr>
+<tr><td class="conf-time">3:55 PM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr>
+<td class="session-time">4:20 PM - 6:00 PM</td>
+<td class="session-title" colspan="5">CP9 SODA 3A: Quantum<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP10 SODA 3B: Approximation Algorithms<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP11 SODA 3C: Algorithmic Game Theory<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="5">CP12 SODA 3D: Pattern Matching<br/><span class="room">Plaza C - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">4:20</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155417" target="_blank">Distributed Quantum Advantage in Locally Checkable Labeling Problems</a><br/><span class="author">Alkida Balliu, Filippo Casagrande, and Francesco D'Amore, Gran Sasso Science Institute, Italy; Massimo Equi, Barbara Keller, and Henrik Lievonen, Aalto University, Finland; Dennis Olivetti, Gran Sasso Science Institute, Italy; Gustav Schmid, Universität Freiburg, Germany; Jukka Suomela, Aalto University, Finland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154202" target="_blank">A Better-Than-5/4-Approximation for Two-Edge Connectivity</a><br/><span class="author">Felix Hommelsheim, Universidad de Chile, Chile; Alexander Lindermayr, University of California, Berkeley, U.S.; Zhenwei Liu, Zhejiang University, China</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155433" target="_blank">Contextual Search in Principal-Agent Games: The Curse of Degeneracy</a><br/><span class="author">Yiding Feng, Hong Kong University of Science and Technology, Hong Kong; Mengfan Ma, Central China Normal University, China; Bo Peng, Shanghai University of Finance and Economics, China; Zongqi Wan, Great Bay University, Dongguan, Guangdong, China</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155560" target="_blank">Tight Lower Bounds for Central String Queries in Compressed Space</a><br/><span class="author">Dominik Kempa, Stony Brook University, U.S.; Tomasz Kociumaka, Max-Planck Institute for Informatics, Germany</span></td>
+</tr>
+<tr>
+<td class="conf-time">4:40</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155647" target="_blank">Polynomial-Time Classical Simulation of Noisy Quantum Circuits with Naturally Fault-Tolerant Gates</a><br/><span class="author">Jon Nelson and Joel Rajakumar, University of Maryland, U.S.; Dominik Hangleiter, ETH Zurich, Switzerland; Michael Gullans, University of Maryland, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155510" target="_blank">Augmenting Packing Dynamic Programs to Handle (Many) Additional Budget Constraints</a><br/><span class="author">Alexander Armbruster, Technische Universität München, Germany; Fabrizio Grandoni and Antoine Tinguely, IDSIA, Switzerland; Andreas Wiese, Technische Universität München, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155354" target="_blank">Compatibility of Fairness and Nash Welfare under Subadditive Valuations</a><br/><span class="author">Siddharth Barman, Indian Institute of Science, India; Mashbat Suzuki, University of New South Wales, Australia</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155564" target="_blank">Explaining the Inherent Tradeoffs for Suffix Array Functionality: Equivalences Between String Problems and Prefix Range Queries</a><br/><span class="author">Dominik Kempa, Stony Brook University, U.S.; Tomasz Kociumaka, Max-Planck Institute for Informatics, Germany</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:00</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155587" target="_blank">Bounding the Asymptotic Quantum Value of All Multipartite Compiled Non-Local Games</a><br/><span class="author">Matilde Baroni, LIP6 and Sorbonne University, France; Dominik Leichtle, University of Edinburgh, United Kingdom; Siniša Jankovic, University of Belgrade, Serbia; Ivan Šupić , Université de Grenoble Alpes, France</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155463" target="_blank">A Better-Than-2 Approximation for the Directed Tree Augmentation Problem</a><br/><span class="author">Meike Neuwohner, CNRS &amp; DIENS, ENS Paris - PSL Research University, France; Olha Silina, Carnegie Mellon University, U.S.; Michael Zlatin, Pomona College, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155548" target="_blank">Approximately Dominating Sets in Elections</a><br/><span class="author">Moses Charikar and Prasanna Ramakrishnan, Stanford University, U.S.; Kangning Wang, Rutgers University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155701" target="_blank">The Complexity of Dynamic Lz77 Is $\tilde{\Theta}(n^{2/3})$</a><br/><span class="author">Itai Boneh, University of Wroclaw, Poland; Shay Golan, Ariel University, Israel; Matan Kraus, Bar Ilan University, Israel</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:20</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155572" target="_blank">Quantum Advantage Via Solving Multivariate Polynomials</a><br/><span class="author">Pierre Briaud, Simula Research Laboratory, Norway; Itai Dinur, Ben Gurion University, Israel; Riddhi Ghosal, University of California, Los Angeles, U.S.; Aayush Jain, Carnegie Mellon University, U.S.; Paul Lou and Amit Sahai, University of California, Los Angeles, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155538" target="_blank">Unsplittable Flow Cut Gap in Undirected Graphs</a><br/><span class="author">David Aleman Espinosa, University of Waterloo, Canada; Nikhil Kumar, Tata Institute of Fundamental Research, India; Joseph Poremba and Bruce Shepherd, University of British Columbia, Canada</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155547" target="_blank">Likelihood of the Existence of Average Justified Representation</a><br/><span class="author">Qishen Han, Rutgers University, U.S.; Biaoshuai Tao, Shanghai Jiao Tong University, China; Lirong Xia and Chengkai Zhang, Rutgers University, U.S.; Houyu Zhou, University of New South Wales, Australia</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154199" target="_blank">Space-Efficient $k$-Mismatch Text Indexes</a><br/><span class="author">Jakub Radoszewski, University of Warsaw, Poland; Tomasz Kociumaka, Max-Planck Institute for Informatics, Germany</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:40</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155378" target="_blank">Quantum Hamiltonian Certification</a><br/><span class="author">Minbo Gao, University of Chinese Academy of Sciences, China; Zhengfeng Ji, Tsinghua University, P. R. China; Qisheng Wang, University of Edinburgh, United Kingdom; Wenjun Yu, University of Hong Kong, China; Qi Zhao, The University of Hong Kong, Hong Kong</span></td>
+<td class="paper-container" colspan="5"><table class="paper-split" style="width:100%;"><tr><td class="paper"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155716" target="_blank">Sparse Navigable Graphs for Nearest Neighbor Search: Algorithms and Hardness</a><br/><span class="author">Ashwin Padaki, Sanjeev Khanna, and Erik Waingarten, University of Pennsylvania, U.S.</span></td></tr><tr><td class="paper"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155542" target="_blank">Efficiently Constructing Sparse Navigable Graphs</a><br/><span class="author">Alex Conway, Cornell University, U.S.; Laxman Dhulipala, University of Maryland, College Park, U.S.; Martin Farach-Colton, New York University, U.S.; Rob Johnson, Vmware Research, U.S.; Ben Landrum, Cornell Tech University, U.S.; Christopher Musco, Yarin Shechter, and Torsten Suel, New York University, U.S.; Richard Wen, University of Maryland, College Park, U.S.</span></td></tr></table></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155495" target="_blank">Optimal Type-Dependent Liquid Welfare Guarantees for Autobidding Agents with Budgets</a><br/><span class="author">Riccardo Colini-Baldeschi, Meta, U.S.; Sophie Klumper and Twan Kroll, CWI Amsterdam and University of Amsterdam, Netherlands; Stefano Leonardi, Università di Roma "La Sapienza", Italy; Guido Schäfer, CWI Amsterdam and University of Amsterdam, Netherlands; Artem Tsikiridis, Technische Universität München, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155562" target="_blank">Optimal Random Access and Conditional Lower Bounds for 2D Compressed Strings</a><br/><span class="author">Rajat De and Dominik Kempa, Stony Brook University, U.S.</span></td>
+</tr>
+
+<tr><td class="conf-time"></td><td class="conf-day" colspan="20">Monday, January 12</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-meal" colspan="20">Continental Breakfast</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-event" colspan="20">Registration</td></tr>
+<tr>
+<td class="session-time">9:00 AM - 11:00 AM</td>
+<td class="session-title" colspan="4">CP13 SODA 4A: Parameterized Algorithms<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP14 SODA 4B:Algorithmic Game Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP15 SODA 4C: Algorithmic Graph Theory<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP16 SODA 4D:Randomized/Probabilistic Method<br/><span class="room">Plaza C - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP46 SOSA Session 1<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:00</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154280" target="_blank">K-Sum Hardness Implies Treewidth-Seth</a><br/><span class="author">Michael Lampis, Université Paris Dauphine, France</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155367" target="_blank">Prophet Inequality from Samples: Is the More the Merrier?</a><br/><span class="author">Tomer Ezra, Harvard University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155511" target="_blank">The Directed Disjoint Paths Problem with Congestion</a><br/><span class="author">Stephan Kreutzer, Matthias Bentert, Dario Cavallaro, and Amelie Heindl, Technische Universität Berlin, Germany; Ken-ichi Kawarabayashi, National Institute of Informatics, Japan; Johannes Schröder, Technische Universität Berlin, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155620" target="_blank">A Classical Quadratic Speedup for Planted Kxor</a><br/><span class="author">William He, Carnegie Mellon University, U.S.; Meghal Gupta, University of California, Berkeley, U.S.; Noah Singer and Ryan O'Donnell, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154223" target="_blank">The Road to the Closest Point Is Paved by Good Neighbors</a><br/><span class="author">Benjamin A. Raichel, University of Texas at Dallas, U.S.; Sariel Har-Peled and Eliot Robson, University of Illinois Urbana-Champaign, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154281" target="_blank">Circuits and Backdoors: Five Shades of the Seth</a><br/><span class="author">Michael Lampis, Université Paris Dauphine, France</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155365" target="_blank">Contract Design Beyond Hidden-Actions</a><br/><span class="author">Tomer Ezra, Harvard University, U.S.; Stefano Leonardi, Università di Roma "La Sapienza", Italy; Matteo Russo, Università La Sapienza, Rome, Italy</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155512" target="_blank">Disjoint Paths in Expanders in Deterministic Almost-Linear Time Via Hypergraph Perfect Matching</a><br/><span class="author">Matija Bucic and Zhongtian He, Princeton University, U.S.; Shang-En Huang, National Taiwan University, Taiwan; Thatchaphol Saranurak, University of Michigan, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155616" target="_blank">Efficient Online Random Sampling Via Randomness Recycling</a><br/><span class="author">Thomas L. Draper and Feras Saad, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155421" target="_blank">Redistricting in Triangular and Square Grids</a><br/><span class="author">Frederick Stock and Hugo A. Akitaya, University of Massachusetts, Lowell, U.S.; Kyle Dituro and Andrei Gonczi, Tufts University, U.S.; Matias Korman, Siemens Electronic Design Automation, U.S.; Diane Souvaine, Tufts University, U.S.; Csaba D. Toth, California State University, Northridge, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155498" target="_blank">The Parameterised Complexity of Counting Small Sub-Hypergraphs</a><br/><span class="author">Marc Roth, Oxford University, United Kingdom; Marco Bressan, University of Milan, Italy; Julian Brinkmann and Holger Dell, Goethe University Frankfurt, Germany; Philip Wellnitz, National Institute of Informatics, Japan</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155482" target="_blank">The Communication Complexity of Combinatorial Auctions with Additional Succinct Bidders</a><br/><span class="author">Frederick V. Qiu, S. Matthew Weinberg, and Qianfan Zhang, Princeton University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155566" target="_blank">Balanced Spanning Tree Distributions Have Separation Fairness</a><br/><span class="author">Harry Chen, Massachusetts Institute of Technology, U.S.; Kamesh Munagala and Govind S. Sankar, Duke University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154380" target="_blank">Explicit Min-Wise Hash Families with Optimal Size</a><br/><span class="author">Xue Chen and Shengtang Huang, University of Science and Technology of China, China; Xin Li, Johns Hopkins University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155702" target="_blank">A Simple Schnyder Drawing Algorithm for Cylindric and Toroidal Triangulations, with Grid Size O(n)xO(n)</a><br/><span class="author">Luca Castelli Aleardi, École Polytechnique de Paris, France; Giselle Feng, Columbia University, U.S.; Eric Fusy, Université Gustave Eiffel, France</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:00</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155670" target="_blank">Augmenting to 4-vertex Connectivity is Fixed-parameter Tractable</a><br/><span class="author">Ramanujan M. Sridharan, University of Warwick, United Kingdom; Johannes Carmesin, Technische Universitaet Bergakademie Freiberg, Germany; Jan Kurkofka, Technische Universität Bergakademie Freiberg, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155413" target="_blank">The Power of Matching for Online Fractional Hedonic Games</a><br/><span class="author">Martin Bullinger, University of Bristol, United Kingdom; René Romen and Alexander Schlenga, Technische Universität München, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155636" target="_blank">A Csp Approach to Graph Sandwich Problems</a><br/><span class="author">Santiago Guzmán Pro and Manuel Bodirsky, Technische Universität Dresden, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155728" target="_blank">On Distributed Colouring of Hyperbolic Random Graphs</a><br/><span class="author">Yannic Maus, Technische Universität, Graz, Austria; Janosch Ruff, Hasso Plattner Institute, Germnay</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155360" target="_blank">Computing the Fréchet Distance When Just One Curve is c-Packed: A Simple Almost-Tight Algorithm</a><br/><span class="author">Jacobus Conradi, Bonn University, Germany; Ivor van Der Hoog, IT University of Copenhagen, Denmark; Thijs Van Der Horst and Tim Ophelders, TU Eindhoven and Utrecht University, The Netherlands</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154194" target="_blank">Finding Sparse Induced Subgraphs on Graphs of Bounded Induced Matching Treewidth</a><br/><span class="author">Hans Bodlaender, University of Utrecht, Netherlands; Fedor Fomin, University of Bergen, Norway; Tuukka Korhonen, University of Copenhagen, Denmark</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155213" target="_blank">Hallucinating Flows for Optimal Mechanisms</a><br/><span class="author">Marios Mertzanidis and Athina Terzoglou, Purdue University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155729" target="_blank">Faster Negative Length Shortest Paths by Bootstrapping Hop Reducers</a><br/><span class="author">Yufan Huang, Purdue University, U.S.; Peter Jin, University of Illinois Urbana-Champaign, U.S.; Kent Quanrud, Purdue University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155578" target="_blank">Improving Algorithmic Efficiency Using Cryptography: Trapdoored Matrices and Applications</a><br/><span class="author">Or Zamir, Tel Aviv University, Israel; Vinod Vaikuntanathan, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155169" target="_blank">A Levelset Algorithm for 3D-Tarksi</a><br/><span class="author">Sebastian Haslebacher and Jonas Lill, ETH Zurich, Switzerland</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155507" target="_blank">A Logic-Based Algorithmic Meta-Theorem for Treedepth: Single Exponential Fpt Time and Polynomial Space</a><br/><span class="author">Benjamin Bergougnoux, Aix-Marseille Université, France; Vera Chekan, Humboldt University at Berlin, Germany; Giannos Stamoulis, Université Paris Cité, CNRS, IRIF, France</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155505" target="_blank">Improved Maximin Share Guarantee for Additive Valuations</a><br/><span class="author">Ehsan Heidari, Alireza Kaviani, Masoud Seddighin, and Amirmohammad Shahrezaei, Sharif University of Technology, Iran</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154365" target="_blank">Perfect Matchings in Random Sparsifications of Dense Hypergraphs</a><br/><span class="author">Jie Han and Jingwen Zhao, Beijing Institute of Technology, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155486" target="_blank">Comparison Theorems for the Mixing Times of Systematic and Random Scan Dynamics</a><br/><span class="author">Jason Gaitonde, Duke University, U.S.; Elchanan Mossel, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155380" target="_blank">A Quasi-Polynomial Time Algorithm for 3-Coloring Circle Graphs</a><br/><span class="author">Ajaykrishnan E S, University of California, Santa Barbara, U.S.; Robert Ganian, Technische Universitaet Wien, Austria; Daniel Lokshtanov and Vaishali Surianarayanan, University of California, Santa Barbara, U.S.</span></td>
+</tr>
+<tr><td class="conf-time">11:00 AM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr>
+<td class="session-time">11:25 AM - 12:25 PM</td>
+<td class="session-title" colspan="20">CP SODA Best Paper and Best Student Paper Prize Session<br/><span class="room">Regency CD - 3rd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">11:25</td>
+<td class="paper" colspan="20"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155600" target="_blank">Best Student Paper Award: Online Resource Allocation with Concave, Diminishing-Returns Objectives</a><br/><span class="author">Kalen R. Patton, Georgia Institute of Technology, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">11:45</td>
+<td class="paper" colspan="20"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155569" target="_blank">Best Paper Award 1: Existence of Fair and Efficient Allocation of Indivisible Chores</a><br/><span class="author">Ryoga Mahara, University of Tokyo, Japan</span></td>
+</tr>
+<tr>
+<td class="conf-time">12:05</td>
+<td class="paper" colspan="20"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155543" target="_blank">Best Paper Award 2: Is Nasty Noise Actually Harder Than Malicious Noise?</a><br/><span class="author">Guy Blanc, Stanford University, U.S.; Yizhi Huang, Tal Malkin, and Rocco A. Servedio, Columbia University, U.S.</span></td>
+</tr>
+<tr><td class="conf-time">12:25 PM</td><td class="conf-meal" colspan="20">Lunch</td></tr>
+<tr>
+<td class="session-time">1:55 PM - 3:55 PM</td>
+<td class="session-title" colspan="4">CP17 SODA 5A: Approximation Algorithms<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP18 SODA 5B: Algorithmic Graph Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP19 SODA 5C:Combinatorics and Discrete Math<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP20 SODA 5D:Sublinear/Streaming<br/><span class="room">Plaza C - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP47 SOSA Session 2<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">1:55</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155534" target="_blank">Approximating Matroid Basis Testing for Partition Matroids Using Budget-In-Expectation</a><br/><span class="author">Lisa Hellerstein, New York University, U.S.; Benedikt M. Plank, Independent Researcher; Kevin Schewior, University of Cologne, Köln, Germany and University of Southern Denmark, Denmark</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155598" target="_blank">New Oracles and Labeling Schemes for Vertex Cut Queries</a><br/><span class="author">Asaf Petruschka, Weizmann Institute of Science, Israel; Yonggang Jiang, Max Planck Institute, Germany; Merav Parter, Weizmann Institute of Science, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155499" target="_blank">Helly-Type Theorems for Splitting Point Sets</a><br/><span class="author">Lidor Portal, Ben Gurion University Negev, Israel; Natan Rubin, Ben-Gurion University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155465" target="_blank">Spectral Clustering in Birthday Paradox Time</a><br/><span class="author">Michael Kapralov, Ekaterina Kochetkova, and Weronika Wrzos-Kaminska, École Polytechnique Fédérale de Lausanne, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155345" target="_blank">Trading Prophets with Initial Capital</a><br/><span class="author">Yossi Azar, Niv Buchbinder, Roie Levin, and Or Vardi, Tel Aviv University, Israel</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:15</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155567" target="_blank">Smooth Trade-off for Tensor Pca Via Sharp Bounds for Kikuchi Matrices</a><br/><span class="author">Jeff Xu, Toyota Technological Institute at Chicago, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155393" target="_blank">Expander Pruning with Polylogarithmic Worst-Case Recourse and Update Time</a><br/><span class="author">Simon Meierhans and Maximilian Probst Gutenberg, ETH Zurich, Switzerland; Thatchaphol Saranurak, University of Michigan, U.S.; Wuwei Yuan, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155522" target="_blank">On a Clique Game and the Erdos-Hajnal Problem on High-Chromatic High-Girth Subgraphs</a><br/><span class="author">Seth Pettie, University of Michigan, U.S.; Gábor Tardos, Renyi Institute, Hungary ; Bartosz Walczak, Jagiellonian University, Poland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155586" target="_blank">Testing Forbidden Order-Pattern Properties on Hypergrids</a><br/><span class="author">Harish Chandramouleeswaran, Chennai Mathematical Institute, India; Ilan I. Newman, Haifa University, Israel; Tomer Pelleg, University of Haifa, Israel; Nithin Varma, University of Cologne, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155473" target="_blank">The $k$-Fold Matroid Secretary Problem</a><br/><span class="author">Rishi Gujjar, Kevin Hua, and Robert Kleinberg, Cornell University, U.S.; Frederick V. Qiu, Princeton University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:35</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155681" target="_blank">Peeling Rotten Potatoes for a Faster Approximation of Convex Cover</a><br/><span class="author">Omrit Filtser, Tzalik Maimon, and Ofir Yomtovyan, Open University of Israel, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155625" target="_blank">Faster Negative-Weight Shortest Paths and Directed Low-Diameter Decompositions</a><br/><span class="author">Jason M. Li and Connor Mowry, Carnegie Mellon University, U.S.; Satish Rao, University of California, Berkeley, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155597" target="_blank">Time-Biased Random Walks and Robustness of Expanders</a><br/><span class="author">Thomas Sauerwald, University of Cambridge, U.S.; John Sylvester, University of Liverpool, United Kingdom; Sam Olesker Taylor, University of Warwick, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155424" target="_blank">Streaming and Massively Parallel Algorithms for Euclidean Max-Cut</a><br/><span class="author">Nicolas Menand and Erik Waingarten, University of Pennsylvania, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155500" target="_blank">Efficient Non-Adaptive Quantum Algorithms for Tolerant Junta Testing</a><br/><span class="author">Zongbo Bao, Centrum voor Wiskunde en Informatica (CWI), Netherlands</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:55</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155509" target="_blank">Breaching the 2-Approximation Barrier for Euclidean Capacitated Vehicle Routing</a><br/><span class="author">Zachary Friggstad, University of Alberta, Canada; Fabrizio Grandoni and Ramin Mousavi, IDSIA, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155582" target="_blank">An Optimal Density Bound for Discretized Point Patrolling</a><br/><span class="author">Ahan Mishra, Cornell University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155363" target="_blank">A Tutte-type Canonical Decomposition of 3- and 4-connected Graphs</a><br/><span class="author">Jan Kurkofka and Tim Planken, Technische Universität Bergakademie Freiberg, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155619" target="_blank">One Attack to Rule Them All: Tight Quadratic Bounds for Adaptive Queries on Cardinality Sketches</a><br/><span class="author">Jelani Nelson, University of California, Berkeley, U.S.; Edith Cohen and Tamas Sarlos, Google Research, U.S.; Mihir Singhal, University of California, Berkeley, U.S.; Uri Stemmer, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155423" target="_blank">Static Pricing for Single Sample Multi-Unit Prophet Inequalities</a><br/><span class="author">Pranav Nuti, University of Chicago, U.S.; Peter Westbrook, Citadel Securities, Switzerland</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:15</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154496" target="_blank">Approximate Light Spanners in Planar Graphs</a><br/><span class="author">Hung Le, University of Massachusetts, Amherst, U.S.; Shay Solomon, Tel Aviv University, Israel; Cuong Than, University of Massachusetts, Amherst, U.S.; Csaba D. Toth, California State University, Northridge, U.S.; Tianyi Zhang, Nanjing University, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154797" target="_blank">Temporal Exploration of Random Spanning Tree Models</a><br/><span class="author">Samuel Baguley, Hasso Plattner Institute, Germnay; Andreas Göbel, Universität Potsdam, Germany; Nicolas Klodt and George Skretas, Hasso Plattner Institute, Germnay; John Sylvester and Viktor Zamaraev, University of Liverpool, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155603" target="_blank">On the Edge Expansion of Random Polytopes</a><br/><span class="author">Marcelo Sales and Asaf Ferber, University of California, Irvine, U.S.; Michael Krivelevich and Wojciech Samotij, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155558" target="_blank">Sublinear Time Low-Rank Approximation of Hankel Matrices</a><br/><span class="author">Michael Kapralov, École Polytechnique Fédérale de Lausanne, Switzerland; Cameron Musco, University of Massachusetts, Amherst, U.S.; Kshiteej Sheth, École Polytechnique Fédérale de Lausanne, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155532" target="_blank">Most Juntas Saturate the Hardcore Lemma</a><br/><span class="author">Vinayak M. Kumar, University of Texas at Austin, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:35</td>
+<td class="paper-container" colspan="4"><table class="paper-split" style="width:100%;"><tr><td class="paper"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155346" target="_blank">Online Joint Replenishment Problem with Arbitrary Holding and Backlog Costs</a><br/><span class="author">Yossi Azar and Shahar Lewkowicz, Tel Aviv University, Israel</span></td></tr><tr><td class="paper"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155529" target="_blank">Improved Online Algorithms for Inventory Management Problems with Holding and Delay Costs: Riding the Wave Makes Things Simpler, Stronger, and More General</a><br/><span class="author">Varun Suriyanarayana, Cornell University, U.S.; David B. Shmoys, Cornell University, U.S.; William Umboh, University of Melbourne, Australia</span></td></tr></table></td>
+<td class="paper" colspan="4"><span class="paper-title">Detecting Correlation Efficiently in Very Supercritical Stochastic Block Models: Breaking the Otter's Threshold Barrier</span><br/><span class="author">Zhangsong Li, Guanyi Chen, Jian Ding, and Shuyang Gong, Peking University, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155528" target="_blank">Constructive L2-Discrepancy Minimization with Additive Deviations</a><br/><span class="author">Kunal Dutta, University of Warsaw, Poland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155574" target="_blank">Online Learning with Limited Information in the Sliding Window Model</a><br/><span class="author">Vladimir Braverman, Johns Hopkins University, U.S.; Sumegha Garg, Rutgers University, U.S.; Chen Wang, Rensselaer Polytechnic Institute, U.S.; David Woodruff, Carnegie Mellon University, U.S.; Samson Zhou, Texas A&amp;M University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155269" target="_blank">An Exact Algorithm for the Unanimous Vote Problem</a><br/><span class="author">Feyza Duman Keles and Lisa Hellerstein, New York University, U.S.; Kunal Marwaha, University of Chicago, U.S.; Christopher Musco, New York University, U.S.; Xinchen Yang, University of Maryland, U.S.</span></td>
+</tr>
+
+<tr><td class="conf-time">3:55 PM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr>
+<td class="session-time">4:20 PM - 6:00 PM</td>
+<td class="session-title" colspan="4">CP21 SODA 6A: Quantum<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP22 SODA 6B: Approximation Algorithms<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP23 SODA 6C: Fine Grained<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP24 SODA 6D:Computational Geometry/Data Structure<br/><span class="room">Plaza C - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP48 SOSA Session 3<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">4:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155343" target="_blank">A Post-Quantum Lower Bound for the Distributed Lovász Local Lemma</a><br/><span class="author">Tim Göttlicher, Aalto University, Finland; Sebastian Brandt, CISPA Helmholtz Center for Information Security, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155357" target="_blank">Weighted Pseudorandom Generators for Read-Once Branching Programs Via Weighted Pseudorandom Reductions</a><br/><span class="author">Kuan Cheng and Ruiyang Wu, Peking University, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155727" target="_blank">A Truly Subcubic Combinatorial Algorithm for Induced 4-Cycle Detection</a><br/><span class="author">Amir Abboud, Weizmann Institute of Science, Israel; Shyan Akmal and Nick Fischer, Max Planck Institute for Informatics, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154248" target="_blank">A Well-Separated Pair Decomposition for Low Density Graphs</a><br/><span class="author">Sampson Wong, University of Copenhagen, Denmark; Joachim Gudmundsson, University of Sydney, Australia</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154244" target="_blank">Continual Release of Densest Subgraphs: Privacy Amplification and Sublinear Space Via Subsampling</a><br/><span class="author">Felix Zhou, Yale University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">4:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154497" target="_blank">Beating Full State Tomography For Unentangled Spectrum Estimation</a><br/><span class="author">Angelos Pelecanos, University of California, Berkeley, U.S.; Xinyu Tan, Massachusetts Institute of Technology, U.S.; Ewin Tang and John Wright, University of California, Berkeley, U.S.</span></td>
+<td class="paper-container" colspan="4"><table class="paper-split" style="width:100%;"><tr><td class="paper"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154327" target="_blank">Tree Covers of Size 2 for the Euclidean Plane</a><br/><span class="author">Andrey Kupavskii and Artur Bikeev, Moscow Institute of Physics and Technology, Russia; Maksim Turevskii, Saint Petersburg State University, Russia</span></td></tr><tr><td class="paper"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155461" target="_blank">Covering the Euclidean Plane by a Pair of Trees</a><br/><span class="author">Hung Le, University of Massachusetts, Amherst, U.S.; Lazar Milenkovic and Shay Solomon, Tel Aviv University, Israel; Tianyi Zhang, Nanjing University, China</span></td></tr></table></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155489" target="_blank">Derandomizing Pseudopolynomial Algorithms for Subset Sum</a><br/><span class="author">Timothy M. Chan, University of Illinois Urbana-Champaign, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154203" target="_blank">Dynamic 3D Convex Hulls Revisited and Applications</a><br/><span class="author">Haitao Wang, University of Utah, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155370" target="_blank">Efficient Derandomization of Differentially Private Counting Queries</a><br/><span class="author">Surendra Ghentiyala, Cornell University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:00</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155713" target="_blank">On the Quantum Chromatic Gap</a><br/><span class="author">Lorenzo Ciardo, Technische Universität, Graz, Austria</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155492" target="_blank">A $(2+\varepsilon)$-Approximation Algorithm for the General Scheduling Problem in Quasipolynomial Time</a><br/><span class="author">Alexander Armbruster, Technische Universität München, Germany; Lars Rohwedder, University of Southern Denmark, Denmark; Andreas Wiese, Technische Universität München, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155448" target="_blank">Long Arithmetic Progressions in Sparse Subset Sums: A Computational Perspective</a><br/><span class="author">Lin Chen, Yuchen Mao, and Guochuan Zhang, Zhejiang University, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155617" target="_blank">Computing the Heaviest Disk and Related Problems</a><br/><span class="author">Esther Ezra, Bar Ilan University, Israel; Pankaj Agarwal, Duke University, U.S.; Micha Sharir, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155416" target="_blank">Semi-Robust Communication Complexity of Maximum Matching</a><br/><span class="author">Christian Konrad, Gabriel Cipriani Huete, and Adithya Diddapur, University of Bristol, United Kingdom; Pavel Dvorak, Charles University in Prague, Czech Republic</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154204" target="_blank">Quantum State Preparation with Optimal T-Count</a><br/><span class="author">Robin Kothari, Google Research, U.S.; David Gosset, University of Waterloo, Canada; Kewen Wu, University of California, Berkeley, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155594" target="_blank">$(\alpha, \beta)$-Spanners and Hybrid Spanners with Nearly Tight Bounds</a><br/><span class="author">Gur Lifshitz and Shiri Chechik, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155624" target="_blank">Improved Additive Approximation Algorithms for APSP</a><br/><span class="author">Ce Jin, University of California, Berkeley, U.S.; Yael Kirkpatrick, Massachusetts Institute of Technology, U.S.; Michal Stawarz, ETH Zurich, Switzerland; Virginia Vassilevska Williams, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155632" target="_blank">Succinct Dynamic Rank/Select: Bypassing the Tree-Structure Bottleneck</a><br/><span class="author">William Kuszmaul, Jingxun Liang, and Renfei Zhou, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155394" target="_blank">A (Very) Nearly Optimal Sketch for $k$-Edge Connectivity Certificates</a><br/><span class="author">Pachara Sawettamalya and Huacheng Yu, Princeton University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155703" target="_blank">Rapid Mixing for Gibbs States Within a Logical Sector: a Dynamical View of Self-Correcting Quantum Memories</a><br/><span class="author">Thiago Bergamaschi, Massachusetts Institute of Technology, U.S.; Reza Gheissari, Northwestern University, U.S.; Yunchao Liu, Harvard University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155580" target="_blank">Shortcuts and Transitive-Closure Spanners Approximation</a><br/><span class="author">Parinya Chalermsook, University of Sheffield, United Kingdom; Yonggang Jiang, Max Planck Institute, Germany; Danupon Nanongkai, Max Planck Institute for Informatics, Germany; Sagnik Mukhopadhyay, University of Birmingham, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155581" target="_blank">Near-Linear Time Subhypergraph Counting in Bounded Degeneracy Hypergraphs</a><br/><span class="author">Daniel Paul-Pena and C. Seshadhri, University of California, Santa Cruz, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154457" target="_blank">A Simple and Fast Reduction from Gomory-Hu Trees to Polylog Maxflows</a><br/><span class="author">Rasmus Kyng, Maximilian Probst Gutenberg, Weixuan Yuan, and Wuwei Yuan, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155431" target="_blank">Simple Average-Case Analysis of Recursive Randomized Greedy Mis</a><br/><span class="author">Mina Dalirrooyfard, Morgan Stanley, U.S.; Konstantin Makarychev, Northwestern University, U.S.; Slobodan Mitrovic, University of California, Davis, U.S.</span></td>
+</tr>
+
+<tr><td class="conf-time">6:15 PM</td><td class="conf-event" colspan="20">SODA Business Meeting &amp; Awards Presentation, followed by SOSA Business Meeting **Complimentary beer and wine will be served**</td></tr>
+<tr><td class="conf-time"></td><td class="conf-day" colspan="20">Tuesday, January 13</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-meal" colspan="20">Continental Breakfast</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-event" colspan="20">Registration</td></tr>
+<tr>
+<td class="session-time">9:00 AM - 11:00 AM</td>
+<td class="session-title" colspan="4">CP25 SODA 7A: Approximation Algorithms<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP26 SODA 7B: Algorithmic Graph Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP27 SODA 7C:Randomized/Probabilistic Method<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP28 SODA 7D:Sublinear/Streaming/Distributed Algorithms<br/><span class="room">Plaza C - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP49 SOSA Session 4<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:00</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155441" target="_blank">PageRank Centrality in Directed Graphs with Bounded In-Degree</a><br/><span class="author">Mikkel Thorup and Hanzhi Wang, University of Copenhagen, Denmark; Zhewei Wei and Mingji Yang, Renmin University of China, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155533" target="_blank">Burling Graphs in Graphs with Large Chromatic Number</a><br/><span class="author">Tara Abrishami, Stanford University, U.S.; Marcin Brianski, Jagiellonian University, Poland; James Davies, University of Leipzig, Germany; Xiying Du, Georgia Institute of Technology, U.S.; Jana Masaríková and Pawel Rzazewski, University of Warsaw, Poland; Bartosz Walczak, Jagiellonian University, Poland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154632" target="_blank">Optimal Mass Estimation in the Conditional Sampling Model</a><br/><span class="author">Tomer Adar and Eldar Fischer, Technion Israel Institute of Technology, Israel; Amit Levi, University of Haifa, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154863" target="_blank">Near-Optimal Four-Cycle Counting in Graph Streams</a><br/><span class="author">Sebastian Lüderssen and Stefan Neumann, Technische Universität Wien, Austria; Pan Peng, University of Science and Technology of China, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155381" target="_blank">A Simpler Exponential-Time Approximation Algorithm for MAX-k-SAT</a><br/><span class="author">Harry Buhrman, Quantinuum, U.K.; Sevag Gharibian, Paderborn University, Germany; Zeph Landau, University of California, Berkeley, U.S.; Francois Le Gall, Nagoya University, Japan; Norbert Schuch, University of Vienna, Austria; Suguru Tamaki, University of Hyogo, Japan</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155591" target="_blank">Selfish, Local and Online Scheduling via Vector Fitting</a><br/><span class="author">Danish Kashaev, Centrum voor Wiskunde en Informatica, Netherlands</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155585" target="_blank">History-Independent Maximal Matchings can Be Surprisingly Efficient, and Lead to Better Worst-Case Guarantees</a><br/><span class="author">Rathish Das, University of Houston, U.S.; William Kuszmaul, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155454" target="_blank">Dichotomy for Orderings?</a><br/><span class="author">Gabor Kun, Hungarian Academy of Sciences, Hungary; Jaroslav Nesetril, Charles University, Czech Republic</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155481" target="_blank">Spectral Clustering with Side Information</a><br/><span class="author">Ekaterina Kochetkova, École Polytechnique Fédérale de Lausanne, Switzerland; Hendrik Fichtenberger, Google Research, U.S.; Michael Kapralov, École Polytechnique Fédérale de Lausanne, Switzerland; Silvio Lattanzi, Google Zurich, Switzerland; Davide Mazzali and Weronika Wrzos-Kaminska, École Polytechnique Fédérale de Lausanne, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155470" target="_blank">A Novel Reduction from \#sat to \#2sat Based on Symmetry: Simply Drop the Large Clauses</a><br/><span class="author">Erik Demaine, Massachusetts Institute of Technology, U.S.; Max Bannach, European Space Agency, France; Timothy Gomez, Massachusetts Institute of Technology, U.S.; Markus Hecher, CNRS Ecole Centrale Paris, France</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155621" target="_blank">Combinatorial Philosopher Inequalities</a><br/><span class="author">Yifan Wang, Georgia Institute of Technology, U.S.; Enze Sun, University of Hong Kong, Hong Kong; Zhihao Gavin Tang, Shanghai University of Finance and Economics, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154249" target="_blank">Faster Algorithms for Packing Forests in Graphs and Related Problems</a><br/><span class="author">Pavel Arkhipov and Vladimir Kolmogorov, Institute of Science and Technology, Austria</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155596" target="_blank">Weighted $k$-Server Admits An Exponentially Competitive Algorithm</a><br/><span class="author">Ashish Chiplunkar, Indian Institute of Technology, Delhi, India; Adithya Bijoy, National University of Singapore, Singapore; Ankit Mondal, Indian Institute of Technology, Delhi, India</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155488" target="_blank">$L_p$ Sampling in Distributed Data Streams with Applications to Adversarial Robustness</a><br/><span class="author">Honghao Lin, Carnegie Mellon University, U.S.; Zhao Song, University of California, Berkeley, U.S.; David Woodruff, Carnegie Mellon University, U.S.; Shenghao Xie and Samson Zhou, Texas A&amp;M University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154234" target="_blank">Tight Lower Bound for Multicolor Discrepancy</a><br/><span class="author">Pasin Manurangsi, Google Research, Thailand; Raghu Meka, University of California, Los Angeles, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:00</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155349" target="_blank">Hardness of Approximation for Shortest Path with Vector Costs</a><br/><span class="author">Ron Mosenzon, Toyota Technological Institute, U.S.; Charlie Carlson, SUNY College at Buffalo, U.S.; Yury Makarychev, Toyota Technological Institute at Chicago, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155622" target="_blank">Sensitivity Lower Bounds for Approximation Algorithms</a><br/><span class="author">Yuichi Yoshida, National Institute of Informatics, Japan; Noah Fleming, Lund University, Sweden</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155504" target="_blank">Balls and Bins and the Infinite Process with Random Deletions</a><br/><span class="author">Peter Kling, University of Applied Sciences Darmstadt, Germany; Petra Berenbrink, Universität Hamburg, Germany; Tom Friedetzky, Durham University, United Kingdom; Lars Nagel, Loughborough University, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155602" target="_blank">Distribution Testing in the Presence of Arbitrarily Dominant Noise with Verification Queries</a><br/><span class="author">Hadley Black and Christopher Ye, University of California, San Diego, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154222" target="_blank">Simple Length-Constrained Expander Decompositions</a><br/><span class="author">Bernhard Haeupler, INSAIT, Sofia University “St. Kliment Ohridski", Bulgaria; Greg Bodwin, University of Michigan, U.S.; Ellis Hershkowitz, Brown University, U.S.; Zihan Tan, Rutgers University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155501" target="_blank">A Deterministic Polylogarithmic Competitive Algorithm for Matching with Delays</a><br/><span class="author">Marc Dufay, ETH Zurich, Switzerland; Roger Wattenhofer, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155362" target="_blank">All-Pairs Minimum Cut Using $\tilde{O}(n^{7/4})$ Cut Queries</a><br/><span class="author">Yotam Kenneth-Mordoch and Robert Krauthgamer, Weizmann Institute of Science, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155508" target="_blank">(Almost) Perfect Discrete Iterative Load Balancing</a><br/><span class="author">Hamed Hosseinpour and Petra Berenbrink, Universität Hamburg, Germany; Robert Elsaesser, University of Salzburg, Austria; Tom Friedetzky, Durham University, United Kingdom; Dominik Kaaser, Technische Universität Hamburg, Germany; Peter Kling, University of Applied Sciences Darmstadt, Germany; Thomas Sauerwald, University of Cambridge, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155696" target="_blank">Faster Distributed Delta-Coloring Via a Reduction to MIS</a><br/><span class="author">Yann Bourreau, Sebastian Brandt, and Alexandre Nolin, CISPA Helmholtz Center for Information Security, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155524" target="_blank">The Sparsification Lemma Via Measure and Conquer</a><br/><span class="author">Daniel Lokshtanov, University of California, Santa Barbara, U.S.; Saket Saurabh, Institute of Mathematical Sciences, India and University of Bergen, Norway; Jie Xue, New York University-Shanghai, China</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155425" target="_blank">New Algorithms and Hardness Results for Robust Satisfiability of (Promise) CSPs</a><br/><span class="author">Joshua Brakensiek, University of California, Berkeley, U.S.; Lorenzo Ciardo, Technische Universität, Graz, Austria; Venkatesan Guruswami, University of California, Berkeley, U.S.; Aaron Potechin, University of Chicago, U.S.; Stanislav Zivny, University of Oxford, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155640" target="_blank">On Independent Spanning Trees in Random Graphs</a><br/><span class="author">Keith Frankston, Rutgers University, U.S.; Nemanja Draganic, Oxford University, United Kingdom; Michael Krivelevich, Tel Aviv University, Israel; Alexey Pokrovskiy, University College London, United Kingdom; Liana Yepremyan, Emory University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155371" target="_blank">Phase Transition of the Sinkhorn-Knopp Algorithm</a><br/><span class="author">Kun He, Renmin University of China, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155456" target="_blank">Optimal Subspace Embeddings: Resolving Nelson-Nguyen Conjecture Up to Sub-Polylogarithmic Factors</a><br/><span class="author">Shabarish Chenakkod and Michal Derezinski, University of Michigan, U.S.; Xiaoyu Dong, National University of Singapore, Singapore</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154458" target="_blank">A Linear-Time Algorithm for the MCS End-Vertex Problem on Chordal Graphs: A Bonus-Driven Search Strategy</a><br/><span class="author">Guozhen Rong and Biao Yuan, Changsha University of Science and Technology, China; Yongjie Yang, Saarland University, Germany; Zhen Zhang, Hunan University, China</span></td>
+</tr>
+<tr><td class="conf-time">11:00 AM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr><td class="conf-time">11:25 AM</td><td class="keynote" colspan="20">IP2 The Four Color Theorem: Generalizations and Faster Algorithms<br/><i>Ken-ichi Kawarabayashi (National Institute of Informatics, Japan)</i></td></tr>
+<tr><td class="conf-time">12:25 PM</td><td class="conf-meal" colspan="20">Lunch</td></tr>
+<tr>
+<td class="session-time">1:55 PM - 3:55 PM</td>
+<td class="session-title" colspan="4">CP29 SODA 8A: Parameterized<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP30 SODA 8B: Algorithmic Game Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP31 SODA 8C:Combinatorics and Discrete Math<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP32 SODA 8D:Lower Bound + Complexity Theory<br/><span class="room">Plaza C - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP50 SOSA Session 5<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">1:55</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155676" target="_blank">A Parameterized Linear Formulation of the Integer Hull</a><br/><span class="author">Friedrich Eisenbrand, École Polytechnique Fédérale de Lausanne, Switzerland; Thomas Rothvoss, University of Washington, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155438" target="_blank">Persuasive Calibration</a><br/><span class="author">Yiding Feng, Hong Kong University of Science and Technology, Hong Kong; Wei Tang, The Chinese University of Hong Kong, Hong Kong</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155491" target="_blank">On Lines Crossing Pairwise Intersecting Convex Sets in Three Dimensions</a><br/><span class="author">Natan Rubin, Ben-Gurion University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155521" target="_blank">Sublinear-Time Lower Bounds for Approximating Matching Size Using Non-Adaptive Queries</a><br/><span class="author">Vihan Shah, University of Birmingham, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155410" target="_blank">Quantum Search on Computation Trees</a><br/><span class="author">Jevgenijs Vihrovs, University of Latvia, Latvia</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:15</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155464" target="_blank">Planar Disjoint Shortest Paths Is Fixed-Parameter Tractable</a><br/><span class="author">Michal Pilipczuk, University of Warsaw, Poland; Giannos Stamoulis, Université Paris Cité, CNRS, IRIF, France; Michal Wlodarczyk, University of Warsaw, Poland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154282" target="_blank">Nearly Tight Sample Complexity for Matroid Online Contention Resolution</a><br/><span class="author">Moran Feldman, University of Haifa, Israel; Ola Svensson, École Polytechnique Fédérale de Lausanne, Switzerland; Rico Zenklusen, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155409" target="_blank">Rapid Mixing of Glauber Dynamics for Monotone Systems Via Entropic Independence</a><br/><span class="author">Minji Yang and Weiming Feng, University of Hong Kong, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155612" target="_blank">On the Universality of Round Elimination Fixed Points</a><br/><span class="author">Sebastian Brandt, CISPA Helmholtz Center for Information Security, Germany; Alkida Balliu, Gran Sasso Science Institute, Italy; Ole Gabsdil, CISPA Helmholtz Center for Information Security, Germany; Dennis Olivetti, Gran Sasso Science Institute, Italy; Jukka Suomela, Aalto University, Finland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155377" target="_blank">Faster Convolutions: Yates and Strassen Revisited</a><br/><span class="author">Cornelius Brand, Universität Regensburg, Germany; Radu Curticapean, University of Regensburg, Germany and IT University of Copenhagen, Denmark; Baitian Li, Columbia University, U.S.; Kevin Pratt, New York University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:35</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155061" target="_blank">$\cal H$-Planarity and Parametric Extensions: When Modulators Act Globally</a><br/><span class="author">Fedor Fomin, Petr Golovach, and Laure Morelle, University of Bergen, Norway; Dimitrios Thilikos, CNRS, LIRMM, France</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155503" target="_blank">Collaborative Prediction: Tractable Information Aggregation Via Agreement</a><br/><span class="author">Natalie Collina, University of Pennsylvania, U.S.; Ira Globus-Harris, Cornell University and the University of Pennsylvania, U.S.; Surbhi Goel, Varun Gupta, Aaron Roth, and Mirah Shi, University of Pennsylvania, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155379" target="_blank">The Erdos-Pósa Property for Circle Graphs as Vertex-minors</a><br/><span class="author">Sebastian Wiederrecht and Rutger Campbell, KAIST, Korea; J. Pascal Gollin, University of Primorska, Slovenia; Meike Hatzel, Technische Universität Darmstadt, Germany; O-Joung Kwon, Hanyang University, South Korea; Rose McCarty, Georgia Institute of Technology, U.S.; Sang-Il Oum, Institute for Basic Science / KAIST, Korea</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155673" target="_blank">Better Bounds for Semi-Streaming Single-Source Shortest Paths</a><br/><span class="author">Sepehr Assadi, University of Waterloo, Canada; Gary Hoppenworth, University of Michigan, U.S.; Janani Sundaresan, University of Waterloo, Canada</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155376" target="_blank">Debiasing Polynomial and Fourier Regression</a><br/><span class="author">Chris Camano, California Institute of Technology, U.S.; Raphael A. Meyer, University of California, Berkeley, U.S.; Kevin Shu, California Institute of Technology, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:55</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154620" target="_blank">A Quasi-Polynomial Bound for the Minimal Excluded Minors for a Surface</a><br/><span class="author">Sarah Houdaigoui and Ken-ichi Kawarabayashi, National Institute of Informatics, Japan</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154198" target="_blank">Networked Information Aggregation Via Machine Learning</a><br/><span class="author">Michael Kearns and Aaron Roth, University of Pennsylvania, U.S.; Emily Ryu, Cornell University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155442" target="_blank">Traversing Regions of Supersolvable Hyperplane Arrangements and Their Lattice Quotients</a><br/><span class="author">Sofia Brenner, Universität Kassel, Germany; Jean Cardinal, Université Libre de Bruxelles, Belgium; Thomas McConville, Kennesaw State University, U.S.; Arturo Merino, Universidad de O'Higgins, Chile; Torsten Mütze, Universität Kassel, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155487" target="_blank">Downward Self-reducibility in the Total Function Polynomial Hierarchy</a><br/><span class="author">Karthik Gajulaplli, Georgetown University, U.S.; Surendra Ghentiyala, Cornell University, U.S.; Zeyong Li, National University of Singapore, Singapore; Sidhant Saraogi, Georgetown University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155994" target="_blank">A Note on Ordered Ruzsa-Szemerédi Graphs</a><br/><span class="author">Kevin Pratt, New York University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:15</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155435" target="_blank">Tight Parameterized (In)tractability of Layered Crossing Minimization: Subexponential Algorithms and Kernelization</a><br/><span class="author">Fedor Fomin and Petr Golovach, University of Bergen, Norway; Tanmay Inamdar, Indian Institute of Technology Jodhpur, India; Saket Saurabh, Institute of Mathematical Sciences, India and University of Bergen, Norway; Meirav Zehavi, Ben-Gurion University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155262" target="_blank">Online Proportional Apportionment</a><br/><span class="author">Javier Cembrano, Max Plank Institute, Germany; Jose Correa and Svenja M. Griesbach, Universidad de Chile, Chile; Victor Verdugo, Pontificia Universidad Católica de Chile, Chile</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155493" target="_blank">Nearly Optimal Bounds for Stochastic Online Sorting</a><br/><span class="author">Yang Hu, Tsinghua University, P. R. China; Jingxun Liang, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155414" target="_blank">Computational Barriers for Permutation-Based Problems, and Cumulants of Weakly Dependent Random Variables</a><br/><span class="author">Bertrand Even and Christophe Giraud, Université Paris-Saclay, France; Nicolas Verzelen, Université de Montpellier, France</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155359" target="_blank">Tree Violation Distance under Constraints</a><br/><span class="author">Debarati Das, Pennsylvania State University, U.S.; Evangelos Kipouridis, Max Planck Institute for Informatics, Germany; Joachim Spoerhase, University of Liverpool, United Kingdom</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:35</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155016" target="_blank">Catching Rats in $H$-Minor-Free Graphs</a><br/><span class="author">Maximilian Gorsky, Institute for Basic Science, Korea; Giannos Stamoulis, Université Paris Cité, CNRS, IRIF, France; Dimitrios Thilikos, CNRS, LIRMM, France; Sebastian Wiederrecht, KAIST, Korea</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155518" target="_blank">A Few Good Choices</a><br/><span class="author">Haoyu Song and Thanh Nguyen, Purdue University, U.S.; Young-San Lin, Melbourne School of Business, Australia</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155646" target="_blank">Universal Connection Schedules for Reconfigurable Networking</a><br/><span class="author">Tegan Wilson, Northeastern University, U.S.; Shaleen Baral, Robert Kleinberg, Sylvan Martin, Henry Rogers, and Ruogu Zhang, Cornell University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155975" target="_blank">Plane Vs. Plane Low Degree Test</a><br/><span class="author">Silas Richelson and Amey Bhangale, University of California, Riverside, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155347" target="_blank">A Simple Geometric Proof of the Optimality of the Sequential Probability Ratio Test for Symmetric Bernoulli Hypotheses</a><br/><span class="author">Chirag Pabbaraju, Stanford University, U.S.; Gregory Valiant, Microsoft Research, U.S.; Rishi Verma, Stanford University, U.S.</span></td>
+</tr>
+<tr><td class="conf-time">3:55 PM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr>
+<td class="session-time">4:20 PM - 6:00 PM</td>
+<td class="session-title" colspan="4">CP33 SODA 9A: Algebraic Methods<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP34 SODA 9B: Approximation Algorithms<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="4">CP35 SODA 9C: Fine Grained<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP36 SODA 9D: Privacy + Fairness<br/><span class="room">Plaza C - 2nd Floor</span></td>
+<td class="session-title" colspan="4">CP51 SOSA Session 6<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">4:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155561" target="_blank">Entrywise Approximation for Matrix Inversion and Linear Systems</a><br/><span class="author">Mehrdad Ghadiri, Massachusetts Institute of Technology, U.S.; Hoai-An Nguyen and Junzhao Yang, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155517" target="_blank">Spanning Tree Embeddings Are Not Much Harder Than Hierarchical Partitions</a><br/><span class="author">Willem Fletcher and D Ellis Hershkowitz, Brown University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155613" target="_blank">Vizing’s Theorem in Deterministic Almost-Linear Time</a><br/><span class="author">Sepehr Assadi, University of Waterloo, Canada; Soheil Behnezhad, Northeastern University, U.S.; Sayan Bhattacharya and Martin Costa, University of Warwick, United Kingdom; Shay Solomon, Tel Aviv University, Israel; Tianyi Zhang, Nanjing University, China</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155579" target="_blank">Differentially Private Algorithms for Graph Cuts: A Shifting Mechanism Approach and More</a><br/><span class="author">Zongrui Zou, Nanjing University, China; Rishi Chandra and Michael Dinitz, Johns Hopkins University, U.S.; Chenglin Fan, Sorbonne University, France</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155467" target="_blank">Reducing Shortcut and Hopset Constructions to Shallow Graphs</a><br/><span class="author">Bernhard Haeupler, ETH Zurich, Switzerland; Yonggang Jiang, Max Planck Institute, Germany; Thatchaphol Saranurak, University of Michigan, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">4:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155642" target="_blank">Algebraic Closure of Matrix Sets Recognized by 1-Vass</a><br/><span class="author">Rida Ait El Manssour, Oxford University, United Kingdom; Mahsa Naraghi, Université de Paris, IRIF, CNRS, France; Mahsa Shirmohammadi, Université Paris Cité, France; James Worrell, University of Oxford, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155444" target="_blank">Approximating Asymmetric A Priori Tsp Beyond the Adaptivity Gap</a><br/><span class="author">Manuel Christalla, ETH Zurich, Switzerland; Luise Puhlmann, Universität Bonn, Germany; Vera Traub, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154504" target="_blank">Faster Algorithms for Global Minimum Vertex-Cut in Directed Graphs</a><br/><span class="author">Ron Mosenzon, Toyota Technological Institute, U.S.; Julia Chuzhoy, Toyota Technological Institute at Chicago, U.S.; Ohad Trabelsi, University of Haifa, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155764" target="_blank">Sample-Efficient Replicable Median in Polynomial Time</a><br/><span class="author">Kiarash Banihashem, University of Maryland, U.S.; MohammadHossein Bateni and Hossein Esfandiari, Google Research, U.S.; Samira Goudarzi and MohammadTaghi Hajiaghayi, University of Maryland, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155364" target="_blank">Simple Algorithms for Fully Dynamic Edge Connectivity</a><br/><span class="author">Yotam Kenneth-Mordoch and Robert Krauthgamer, Weizmann Institute of Science, Israel</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:00</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155614" target="_blank">The Division Barrier: Optimal Bounds and Structural Limits in Toom-Cook Interpolation</a><br/><span class="author">Roy Nissim, Red Hat, Israel; Oded Schwartz, Hebrew University of Jerusalem, Israel; Yuval Spiizer, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155615" target="_blank">Additive Approximation Schemes for Low-Dimensional Embeddings</a><br/><span class="author">Prashanti Anderson, Massachusetts Institute of Technology, U.S.; Ainesh Bakshi, New York University, U.S.; Samuel Hopkins, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155626" target="_blank">Algorithms and Lower Bounds for the Maximum Overlap of Two Polygons Under Translation</a><br/><span class="author">Mikkel Abrahamsen, University of Copenhagen, Denmark; Sujoy Bhore, IIT Bombay, India; Maike Buchin, Ruhr-Universität Bochum, Germany; Jacobus Conradi, Universität Bonn, Germany; Ce Jin, University of California, Berkeley, U.S.; André Nusser, Université Côte d'Azur and INRIA, France; Carolin Rehs, Technical University of Dortmund, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155513" target="_blank">On the Structure of Replicable Hypothesis Testers</a><br/><span class="author">Anders Aamand, University of Copenhagen, Denmark; Maryam Aliakbarpour, Rice University, U.S.; Justin Y. Chen, Massachusetts Institute of Technology, U.S.; Shyam Narayanan, Citadel Securities, Switzerland; Sandeep Silwal, University of Wisconsin-Madison, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155135" target="_blank">Lossless Derandomization for Undirected Single-Source Shortest Paths and Approximate Distance Oracles</a><br/><span class="author">Shuyi Yan, University of Copenhagen, Denmark</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:20</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155635" target="_blank">On the Complexity of the Skolem Problem at Low Orders</a><br/><span class="author">Piotr Bacik, University of Oxford, United Kingdom; Joel Ouaknine, Max Planck Institute for Software Systems, Germany; James Worrell, University of Oxford, United Kingdom</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155599" target="_blank">An Efficient Massively Parallel Constant-Factor Approximation Algorithm for the $k$-Means Problem</a><br/><span class="author">Vincent Cohen-Addad, Google Research, U.S.; Fabian Kuhn and Zahra Parsaeian, Universität Freiburg, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155540" target="_blank">Online Orthogonal Vectors Revisited</a><br/><span class="author">Karthik Gajulapalli, Alexander Golovnev, Samuel King, and Sidhant Saraogi, Georgetown University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155506" target="_blank">Differentially Private Quasi-Concave Optimization: Bypassing the Lower Bound and Application to Geometric Problems</a><br/><span class="author">Kobbi Nissim, Georgetown University, U.S.; Eliad Tsfadia, Bar Ilan University, Israel; Chao Yan, Georgetown University, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155457" target="_blank">Directed and Undirected Vertex Connectivity Problems Are Equivalent for Dense Graphs</a><br/><span class="author">Olivier Fischer, ETH Zurich, Switzerland; Yonggang Jiang, Max Planck Institute, Germany; Sagnik Mukhopadhyay, University of Birmingham, United Kingdom; Sorrachai Yingchareonthawornchai, Aalto University, Finland</span></td>
+</tr>
+<tr>
+<td class="conf-time">5:40</td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155583" target="_blank">Optimization Modulo Integer Linear-Exponential Programs</a><br/><span class="author">Alessio Mansutti, IMDEA Software Institute, Spain; S Hitarth, Hong Kong University of Science and Technology, Hong Kong; Guruprerana Shabadi, University of Pennsylvania, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155468" target="_blank">Max Bisection Might Be Harder to Approximate Than Max Cut</a><br/><span class="author">Neng Huang, University of Michigan, U.S.; Joshua Brakensiek, University of California, Berkeley, U.S.; Aaron Potechin, University of Chicago, U.S.; Uri Zwick, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155666" target="_blank">Separations Between Oblivious and Adaptive Adversaries for Natural Dynamic Graph Problems</a><br/><span class="author">Sayan Bhattacharya, University of Warwick, United Kingdom; Aaron Bernstein, Rutgers University, U.S.; Nick Fischer, Max Planck Institute for Informatics, Germany; Peter Kiss, University of Vienna, Austria; Thatchaphol Saranurak, University of Michigan, U.S.</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155633" target="_blank">Matroids Are Equitable</a><br/><span class="author">Hannaneh Akrami, Max Planck Institute for Informatics, Germany and Saarland University, Germany; Roshan Raj, Tata Institute of Fundamental Research, Mumbai, India; Laszlo Vegh, University of Bonn, Germany</span></td>
+<td class="paper" colspan="4"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155714" target="_blank">Space-Efficient Hierholzer: Eulerian Cycles in O(m) Time and O(n) Space</a><br/><span class="author">Ziad Ismaili Alaoui, University of Liverpool, United Kingdom; Detlef Plump, University of York, United Kingdom; Sebastian Wild, University of Liverpool, United Kingdom</span></td>
+</tr>
+<tr><td class="conf-time"></td><td class="conf-day" colspan="20">Wednesday, January 14</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-meal" colspan="20">Continental Breakfast</td></tr>
+<tr><td class="conf-time">8:30 AM</td><td class="conf-event" colspan="20">Registration</td></tr>
+<tr>
+<td class="session-time">9:00 AM - 11:00 AM</td>
+<td class="session-title" colspan="5">CP37 SODA 10A: Approximation Algorithms<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP38 SODA 10B:Algorithmic Graph Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP39 SODA 10C:Combinatorics and Discrete Math<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="5">CP52 SOSA Session 7<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:00</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155462" target="_blank">A Near-Complete Resolution of the Exponential-Time Complexity of $k$-opt for the Traveling Salesman Problem</a><br/><span class="author">Sophia Heimann, Universität Bonn, Germany; Hung Hoang, Technische Universität Wien, Austria; Stefan Hougardy, Universität Bonn, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155559" target="_blank">Strongly Polynomial Parallel Work-Depth Tradeoffs for Directed SSSP</a><br/><span class="author">Marek Sokolowski, Max Planck Institute for Informatics, Germany; Adam Karczmarz and Wojciech Nadara, University of Warsaw, Poland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155677" target="_blank">Evasive Sets, Twisted Varieties, and Container-Clique Trees</a><br/><span class="author">Jeck Lim, University of Oxford, United Kingdom; Jiaxi Nie, Georgia Institute of Technology, U.S.; Ji Zeng, Alfréd Rényi Institute of Mathematics, Hungary</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155440" target="_blank">Maximal Palindromes in Mpc: Simple and Optimal</a><br/><span class="author">Solon P. Pissis, CWI, Amsterdam, Netherlands</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:20</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155545" target="_blank">Optimal Rounding for Two-Stage Bipartite Matching</a><br/><span class="author">Anders Wikum, Tristan Pollner, and Amin Saberi, Stanford University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155627" target="_blank">Sparsifying Cayley Graphs on Every Group</a><br/><span class="author">Jun-Ting Hsieh and Daniel Z. Lee, Massachusetts Institute of Technology, U.S.; SIDHANTH Mohanty, Northwestern University, U.S.; Aaron L. Putterman, Harvard University, U.S.; RACHEL Yun Zhang, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155443" target="_blank">Listing Faces of Polytopes</a><br/><span class="author">Sofia Brenner, Universität Kassel, Germany; Nastaran Behrooznia, University of Warwick, United Kingdom; Arturo Merino, Universidad de O'Higgins, Chile; Torsten Mütze, Christian Rieck, and Francesco Verciani, Universität Kassel, Germany</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155430" target="_blank">A Simple Analysis of Ranking in General Graphs</a><br/><span class="author">Tao Yu and Mahsa Derakhshan, Northeastern University, U.S.; Mohammad Roghani, Stanford University, U.S.; Mohammad Saneian, Northeastern University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">9:40</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155429" target="_blank">Approximate Counting of Permutation Patterns</a><br/><span class="author">Omri Ben-Eliezer, Technion, Israel; Slobodan Mitrovic, University of California, Davis, U.S.; Pranjal Srivastava, Massachusetts Institute of Technology, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155610" target="_blank">Sparsifying Sums of Positive Semidefinite Matrices</a><br/><span class="author">Arpon Basu and Pravesh Kothari, Princeton University, U.S.; Yang Liu, Carnegie Mellon University, U.S.; Raghu Meka, University of California, Los Angeles, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155412" target="_blank">Extended Vc-Dimension, and Radon and Tverberg Type Theorems for Unions of Convex Sets</a><br/><span class="author">Shakhar Smorodinsky, Ben-Gurion University, Israel; Noga Alon, Princeton University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155366" target="_blank">A Learning Perspective on Random-Order Covering Problems</a><br/><span class="author">Anupam Gupta, New York University, U.S.; Marco Molinaro, Microsoft Research, U.S.; Matteo Russo, Università La Sapienza, Rome, Italy</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:00</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155604" target="_blank">Sublinear Metric Steiner Forest Via Maximal Independent Set</a><br/><span class="author">Mohammad Roghani, Stanford University, U.S.; Sepideh Mahabadi and Jakub Tarnawski, Microsoft Research, U.S.; Ali Vakilian, Virginia Tech, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155601" target="_blank">Coloring Graphs with Few Colors in the Streaming Model</a><br/><span class="author">Sepehr Assadi, Janani Sundaresan, and Helia Yazdanyar, University of Waterloo, Canada</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155565" target="_blank">A Near-Optimal Quadratic Goldreich-Levin Algorithm</a><br/><span class="author">Jop Briët, Centrum voor Wiskunde en Informatica (CWI), Netherlands; Davi Castro-Silva, University of Cambridge, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154943" target="_blank">Competitive Online Transportation Simplified</a><br/><span class="author">Stephen Arndt and Benjamin Moseley, Carnegie Mellon University, U.S.; Kirk Pruhs, University of Pittsburgh, U.S.; Marc Uetz, University of Twente, Netherlands</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:20</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155496" target="_blank">Local Search for Clustering in Almost-Linear Time</a><br/><span class="author">Shaofeng Jiang, Peking University, China; YAONAN Jin, Huawei Technologies Co., Ltd., China; Jianing Lou, Peking University, China; Pinyan Lu, Shanghai University of Finance and Economics, China</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155340" target="_blank">Three-Edge-Coloring (Tait Coloring) Cubic Graphs and Nowhere-Zero 4-Flow for Graphs on the Torus</a><br/><span class="author">Yuta Inoue, University of Tokyo, Japan; Ken-ichi Kawarabayashi, National Institute of Informatics, Japan; Miyashita Atsuyuki, University of Tokyo, Japan; Bojan Mohar, Simon Fraser University, Canada; Tomohiro Sonobe, National Institute of Informatics, Japan</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155085" target="_blank">Braiding Vineyards</a><br/><span class="author">Erin Chambers, University of Notre Dame, U.S.; Christopher Fillmore, Institute of Science and Technology, Austria; Elizabeth Stephenson, Orteliu, Norway; Mathijs Wintraecken, Inria Sophia Antipolis, France</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155484" target="_blank">The Harmonic Policy for Online Buffer Sharing Is $(2 + \ln N)$-Competitive: A Simple Proof</a><br/><span class="author">Vamsi Addanki, Purdue University, U.S.; Julien Dallot, Technische Universität Berlin, Germany; Leon Kellerhals, Techniche Universität Clausthal, Germany; Maciej Pacut, Stefan Schmid, and Aleksander Figiel, Technische Universität Berlin, Germany</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:40</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154247" target="_blank">Local Gibbs Sampling Beyond Local Uniformity</a><br/><span class="author">Chunyang Wang, Hongyang Liu, and Yitong Yin, Nanjing University, China</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155571" target="_blank">Recognizing Leaf Powers and Pairwise Compatibility Graphs is NP-Complete</a><br/><span class="author">Max Dupré La Tour and Ndiamé Ndiaye, McGill University, Canada; Manuel Lafond, Universite de Sherbrooke, Canada</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154228" target="_blank">Rumour Spreading Depends on the Latent Geometry and Degree Distribution in Social Network Models</a><br/><span class="author">Marc Kaufmann, Kostas Lakis, Johannes Lengler, Raghu Raman Ravi, Ulysse Schaller, and Konstantin Sturm, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155439" target="_blank">Text Indexing and Pattern Matching with Ephemeral Edits</a><br/><span class="author">Solon P. Pissis, CWI, Amsterdam, Netherlands</span></td>
+</tr>
+<tr>
+<td class="conf-time">10:40</td>
+<td class="paper" colspan="5"></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155392" target="_blank">Dynamic Connectivity with Expected Polylogarithmic Worst-Case Update Time</a><br/><span class="author">Simon Meierhans, Maximilian Probst Gutenberg, and Weixuan Yuan, ETH Zurich, Switzerland</span></td>
+<td class="paper" colspan="5"></td>
+<td class="paper" colspan="5"></td>
+</tr>
+<tr><td class="conf-time">11:00 AM</td><td class="conf-event" colspan="20">Coffee Break</td></tr>
+<tr><td class="conf-time">11:25 AM</td><td class="keynote" colspan="20">IP3 Some Incremental Results, and the Future of TCS<br/><i>Gregory Valiant (Stanford University, U.S.)</i></td></tr>
+<tr><td class="conf-time">12:25 PM</td><td class="conf-meal" colspan="20">Lunch</td></tr>
+<tr>
+<td class="session-time">1:55 PM - 3:35 PM</td>
+<td class="session-title" colspan="5">CP40 SODA 11A: Algebraic Methods<br/><span class="room">Regency C - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP41 SODA 11B: Algorithmic Game Theory<br/><span class="room">Regency D - 3rd Floor</span></td>
+<td class="session-title" colspan="5">CP42 SODA 11C: Online Algorithms<br/><span class="room">Plaza B - 2nd Floor</span></td>
+<td class="session-title" colspan="5">CP53 SOSA Session 8<br/><span class="room">Plaza A - 2nd Floor</span></td>
+</tr>
+<tr>
+<td class="conf-time">1:55</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155485" target="_blank">Problems from Optimization and Computational Algebra Equivalent to Hilbert's Nullstellensatz</a><br/><span class="author">Sagnik Dutta, Max Planck Institute for Informatics, Germany; Markus Bläser, Saarland University, Germany; Gorav Jindal, University of Warsaw, Poland</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155494" target="_blank">When Contracts Get Complex: Information-Theoretic Barriers</a><br/><span class="author">Paul Dütting, Google Research, U.S.; Michal Feldman and Yoav Gal-Tzur, Tel Aviv University, Israel; Aviad Rubinstein, Stanford University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155353" target="_blank">Nearly Tight Bounds for the Online Sorting Problem</a><br/><span class="author">Yossi Azar, Tel Aviv University, Israel; Debmalya Panigrahi, Duke University, U.S.; Or Vardi, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155310" target="_blank">A Simple and Fast $(3+\varepsilon)$-Approximation for Constrained Correlation Clustering</a><br/><span class="author">Nate Veldt, Texas A&amp;M University, U.S.</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:15</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155451" target="_blank">On the Usefulness of Promises</a><br/><span class="author">Per Austrin, Johan Håstad, and Björn Martinsson, KTH Royal Institute of Technology, Sweden</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155593" target="_blank">Better Regret Rates in Bilateral Trade Via Sublinear Budget Violation</a><br/><span class="author">Anna Lunghi, Matteo Castiglioni, and Alberto Marchesi, Politecnico di Milano, Italy</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155628" target="_blank">Online 3-Taxi on General Metrics</a><br/><span class="author">Christian Coester and Tze-Yang Poon, University of Oxford, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155420" target="_blank">Unsplittable Cost Flows from Unweighted Error-Bounded Variants</a><br/><span class="author">Laura Vargas Koch, RTWH Aachen, Germany; Chaitanya Swamy, University of Waterloo, Canada; Vera Traub and Rico Zenklusen, ETH Zurich, Switzerland</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:35</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154186" target="_blank">On Deterministically Finding An Element of High Order Modulo a Composite</a><br/><span class="author">Ziv Oznovich and Ben Lee Volk, Reichman University, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155368" target="_blank">Contract Design for Sequential Actions</a><br/><span class="author">Tomer Ezra, Harvard University, U.S.; Michal Feldman and Maya Schlesinger, Tel Aviv University, Israel</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155539" target="_blank">Learning in An Echo Chamber: Online Learning with Replay Adversary</a><br/><span class="author">Daniil Dmitriev, ETH Zurich, Switzerland; Harald Franck, Carolin Heinzler, and Amartya Sanyal, University of Copenhagen, Denmark</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155375" target="_blank">Approximating Graphic Multi-Path Tsp and Graphic Ordered Tsp</a><br/><span class="author">Morteza Alimi, Universität Augsburg, Germany; Niklas Dahlmeier, RTWH Aachen, Germany; Tobias Mömke, Universität Augsburg, Germany; Philipp Pabst and Laura Vargas Koch, RTWH Aachen, Germany</span></td>
+</tr>
+<tr>
+<td class="conf-time">2:55</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155469" target="_blank">Numerical Linear Algebra in Linear Space</a><br/><span class="author">Yiping Liu, Tsinghua University, P. R. China; Hoai-An Nguyen and Junzhao Yang, Carnegie Mellon University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155352" target="_blank">Robust Equilibria in Shared Resource Allocation Via Strengthening Border's Theorem</a><br/><span class="author">David X. Lin, Siddhartha Banerjee, Giannis Fikioris, and Éva Tardos, Cornell University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155674" target="_blank">Online Conformal Prediction with Efficiency Guarantees</a><br/><span class="author">Vaidehi Srinivas, Northwestern University, U.S.</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154958" target="_blank">No SDP Needed for Efficiently Recovering Planted Regular Bipartite Graphs</a><br/><span class="author">Anand Louis and Rameesh Paul, Indian Institute of Science, Bangalore, India</span></td>
+</tr>
+<tr>
+<td class="conf-time">3:15</td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=154498" target="_blank">Lower Bounds for Csp Hierarchies Through Ideal Reduction</a><br/><span class="author">Jonas Conneryd, Lund University, Sweden; Yassine Ghannane, University of Copenhagen, Denmark and Lund University, Sweden; Shuo Pang, University of Bristol, United Kingdom</span></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155630" target="_blank">Fair Division Beyond Monotone Valuations with Applications to Equitable Graph Partitioning</a><br/><span class="author">Paritosh Verma, Purdue University, U.S.</span></td>
+<td class="paper" colspan="5"></td>
+<td class="paper" colspan="5"><a class="paper-title" href="https://meetings.siam.org/sess/dsp_talk.cfm?p=155257" target="_blank">Yet Another Proof That BPP $\subseteq$ PH</a><br/><span class="author">Ilya Volkovich, Boston College, U.S.</span></td>
+</tr>
+</table><script>
+document.addEventListener('DOMContentLoaded', function() {
+  const STATE_KEY = 'soda2026-talk-states'; // { [talkId]: 1 (gray) | 2 (yellow) }
+  const MODE_KEY  = 'soda2026-tier-mode';  // "1" | "2"
+
+  function safeJsonParse(text, fallback) {
+    try { return JSON.parse(text); } catch(e) { return fallback; }
+  }
+
+  let states = safeJsonParse(localStorage.getItem(STATE_KEY) || '{}', {});
+  // Migrate legacy one-tier selections (boolean map) if present
+  if (Object.keys(states).length === 0) {
+    const legacy = safeJsonParse(localStorage.getItem('soda2026-selected-talks') || '{}', {});
+    Object.keys(legacy || {}).forEach(id => { if (legacy[id]) states[id] = 1; });
+    try { localStorage.setItem(STATE_KEY, JSON.stringify(states)); } catch(e) {}
+  }
+  let mode = localStorage.getItem(MODE_KEY) || '1';
+
+  const toggleBtn = document.getElementById('tier-toggle');
+
+  function renderAll() {
+    document.querySelectorAll('td.paper.selectable').forEach(cell => {
+      const id = cell.dataset.talkId;
+      if (!id) return;
+      const savedRaw = states[id];
+      const savedNum = (savedRaw === true) ? 1 : Number(savedRaw);
+      const saved = (savedNum === 1 || savedNum === 2) ? savedNum : 0;
+      const view = (mode === '1' && saved === 2) ? 1 : saved;
+      applyCellState(cell, view);
+    });
+  }
+
+  function setMode(nextMode) {
+    mode = String(nextMode) === '2' ? '2' : '1';
+    try { localStorage.setItem(MODE_KEY, mode); } catch(e) {}
+
+    const pressed = mode === '2';
+    if (toggleBtn) {
+      toggleBtn.classList.toggle('pressed', pressed);
+      toggleBtn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    }
+
+    // Re-render cells for the active mode without mutating saved states
+    renderAll();
+  }
+
+  function getCellState(cell) {
+    if (cell.classList.contains('tier2')) return 2;
+    if (cell.classList.contains('selected')) return 1;
+    return 0;
+  }
+
+  function applyCellState(cell, s) {
+    if (s === 2) {
+      cell.classList.add('selected');
+      cell.classList.add('tier2');
+    } else if (s === 1) {
+      cell.classList.add('selected');
+      cell.classList.remove('tier2');
+    } else {
+      cell.classList.remove('selected');
+      cell.classList.remove('tier2');
+    }
+  }
+
+  // Wire cells
+  document.querySelectorAll('td.paper').forEach(cell => {
+    const link = cell.querySelector('a.paper-title');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    const match = href.match(/p=(\d+)/);
+    if (!match) return;
+
+    const talkId = match[1];
+    cell.classList.add('selectable');
+    cell.dataset.talkId = talkId;
+
+    const savedRaw = states[talkId];
+    const savedNum = (savedRaw === true) ? 1 : Number(savedRaw);
+    const saved = (savedNum === 1 || savedNum === 2) ? savedNum : 0;
+    const view = (mode === '1' && saved === 2) ? 1 : saved;
+    applyCellState(cell, view);
+
+    cell.addEventListener('click', function(e) {
+      if (e.target && e.target.tagName === 'A') return;
+
+      const current = getCellState(this);
+      let next = 0;
+
+      if (mode === '2') {
+        // none -> gray -> yellow -> none
+        next = (current === 0) ? 1 : (current === 1) ? 2 : 0;
+      } else {
+        // one-tier: none <-> gray
+        next = (current === 0) ? 1 : 0;
+      }
+
+      applyCellState(this, next);
+
+      const id = this.dataset.talkId;
+      if (!id) return;
+
+      if (next === 0) delete states[id];
+      else states[id] = next;
+
+      try { localStorage.setItem(STATE_KEY, JSON.stringify(states)); } catch(e) {}
+    });
+  });
+
+  // Wire toggle button
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function() {
+      setMode(mode === '2' ? '1' : '2');
+    });
+  }
+
+  // Initialize button + enforce collapse if needed
+  setMode(mode);
+});
+</script>
+<div id="tier-toggle-container">
+<button aria-pressed="false" class="tier-toggle" id="tier-toggle" type="button">Double Tier System</button>
+</div>
+</body></html>
